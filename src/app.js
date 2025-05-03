@@ -1,4 +1,4 @@
-const apiKey = "API KEY"; // Replace with your real API key
+const apiKey = "AIzaSyA2UG9nBaaXbCEzhEd28c59KocRawhljMs"; // Replace with your real API key
 
 let gpuData = [];
 

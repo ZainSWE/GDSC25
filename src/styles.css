@@ -1,10 +1,113 @@
+.cal-sans-regular {
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 body {
-  background-image: linear-gradient(red, yellow);
+    color: white;
+    justify-content: center;
+    text-align: center;
+    font-family: "Cal Sans", sans-serif;
+    background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
     margin: 0px;
     padding: 0px;
 }
 
+/* Make the video container a positioning context */
+.gpuAnim {
+  position: relative; /* Allows absolute positioning inside */
+  width: 1020px;
+  height: 1220px;
+  margin: 0 auto; /* Center the video */
+  margin-top: -300px;
+}
+
+/* Position the title & subtitle absolutely inside the video */
+.website-name, .website-sub {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10; /* Ensures text appears above video */
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+  margin-top: -100px;
+}
+
+.website-name {
+  top: 20%; /* Adjust vertical position */
+  font-size: 100px;
+  margin-top: -30px;
+}
+
+.website-sub {
+  top: 40%; /* Adjust vertical position */
+  font-size: 20px;
+  margin-top: 50px;
+}
+
+.glassPanel {
+  position: absolute;
+  left: 50%;
+  top: 18.5%;
+  width: 25%;
+  max-width: 800px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px) saturate(120%);
+  -webkit-backdrop-filter: blur(15px) saturate(120%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+  z-index: 9;
+  animation: float 10s ease-in-out infinite;
+  transform: translate(-50%, -50%) perspective(1000px);
+  transform-style: preserve-3d;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) perspective(1000px) 
+              rotateX(-8deg) rotateY(8deg) 
+              translateZ(20px);
+    box-shadow: 
+      0 15px 50px rgba(0, 0, 0, 0.5),
+      inset 0 0 50px rgba(255, 255, 255, 0.2),
+      0 0 80px rgba(100, 150, 255, 0.4);
+  }
+  25% {
+    transform: translate(-50%, -50%) perspective(1000px) 
+              rotateX(10deg) rotateY(-5deg) 
+              translateZ(40px);
+  }
+  50% {
+    transform: translate(-50%, -50%) perspective(1000px) 
+              rotateX(5deg) rotateY(10deg) 
+              translateZ(30px);
+  }
+  75% {
+    transform: translate(-50%, -50%) perspective(1000px) 
+              rotateX(-5deg) rotateY(-10deg) 
+              translateZ(40px);
+  }
+}
+
+
+/* Ensure the gpuAnim container can handle 3D transforms */
+.gpuAnim {
+  transform-style: preserve-3d;
+}
+
+/* Enhance the text to appear on the glass */
+.website-name, .website-sub {
+  text-shadow: 
+    0 2px 8px rgba(255, 255, 255, 0.6),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  transform: translateZ(20px);
+}
 
 .navbar ul {
     list-style-type: none;
@@ -77,7 +180,8 @@ model-viewer {
 .confirm-button {
   padding: 12px 24px;
   font-size: 18px;
-  background-color: #1a950a;
+  font-family: "Cal Sans", sans-serif;
+  background-color: #0c64a3;
   color: white;
   border: none;
   border-radius: 8px;
@@ -99,12 +203,17 @@ model-viewer {
     background-color: #00ff40;
   }
 
+.question-wrap {
+
+  margin-bottom: 25px;
+  margin-top: 250px;
+}
 
 .question-text {
     font-size: 24px;
     text-align: center;
     margin-bottom: 25px;
-    color: #000000;
+    color: #ffffff;
   }
   
   .prompt-box {
@@ -116,11 +225,12 @@ model-viewer {
   }
   
   .user-input {
+    font-family: "Cal Sans", sans-serif;
     padding: 10px;
     width: 100%;           
-    max-width: 900px;
+    max-width: 600px;
     font-size: 18px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     border-radius: 6px;
     margin: 0 auto;
     display: block;
@@ -130,15 +240,33 @@ model-viewer {
   /*Text box section ends here */
 
 
-  .hidden {
+  #container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     opacity: 0;
     pointer-events: none;
-    position: absolute;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
   }
-  
+
   .visible {
     opacity: 1;
     pointer-events: auto;
-    transition: opacity 0.3s ease;
+    position: relative; /* allow it to affect height */
   }
+
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute; /* remove it from layout */
+  }
+
+  

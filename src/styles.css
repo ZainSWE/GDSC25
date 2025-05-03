@@ -73,19 +73,26 @@ model-viewer {
 /*Text box section*/
 
 .confirm-button {
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #1a950a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin: 20px auto;              
+  display: block;
+  margin-top: 2px;
+
+}
+
+  .confirm-wrapper {
+    width: 100%;
     display: flex;
-    padding: 12px 24px;
     justify-content: center;
-    font-size: 18px;
-    background-color: #00ff40;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    margin-top: 20px;
-    margin-bottom: 20px;
   }
+
   .confirm-button:hover {
     background-color: #00ff40;
   }
@@ -118,37 +125,36 @@ model-viewer {
     margin-bottom: 10px;
   }
   
-
-/* Frosted Glass Panel */
-  .flex-container {
-    display: flex;
-    justify-content: center; /* Horizontally centers content */
-    align-items: center; /* Vertically centers content (optional) */
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative; /* Needed to constrain frostedGlass */
-    min-height: 900px; /* Adjust based on content */
-}
-
-
-.frostedGlass {
-    position: absolute; /* Covers the flex container */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    z-index: -1;
-}
-  
   /*Text box section ends here */
 
 
+  .gradient-background {
+    background: linear-gradient(240deg,#100b8c,#000000);
+    background-size: 120% 120%;
+    animation: gradient-animation 10s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
-
-
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 0.3s ease;
+  }
+  
+  .visible {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.3s ease;
+  }

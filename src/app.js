@@ -81,7 +81,13 @@ async function askGemini() {
 
     document.getElementById("specs").innerText = specs;
 
-    document.getElementById("model").src = `${selectedGPU.Name}.glb`;
+    document.getElementById("3dModel").src = `${selectedGPU.Name}.glb`;
+
+    // Hide Page 1 and show Page 2
+    document.getElementById("page1").classList.remove("visible");
+    document.getElementById("page1").classList.add("hidden");
+    document.getElementById("page2").classList.remove("hidden");
+    document.getElementById("page2").classList.add("visible");
 }
 
 function getGPU(answer){

@@ -15,44 +15,51 @@
             </ul>
         </nav>
 
-        <div class="flex-container">
-            <!-- Frosted Glass Background -->
-            <div class="frostedGlass"></div>
-
-        <!----
-        <div class="question-text"> Question Here </div>
-            <div class="prompt-box">
-              
-              <input class="user-input" id="userInput" type="text" placeholder="Type here..." />
+        <div id="page1" class="visible">
+            <div class="question-text"> What would you like to use your gpu for?</div>
+                <div class="prompt-box">
+                
+                <input class="user-input" id="usageInput" type="text" placeholder="Type here..." />
             </div>
 
-          <div class="question-text"> Question Here </div>
-            <div class="prompt-box">
-              <input class="user-input" id="userInput" type="text" placeholder="Type here..." />
+            <div class="question-text"> What programs do you want to run?</div>
+                <div class="prompt-box">
+                <input class="user-input" id="programInput" type="text" placeholder="Type here..." />
             </div>
 
-          <div class="question-text"> Question Here </div>
-            <div class="prompt-box">
-              <input class="user-input" id="userInput" type="text" placeholder="Type here..." />
+            <div class="question-text"> Do you have a preference for a GPU Manufacturer? </div>
+                <div class="prompt-box">
+                <input class="user-input" id="companyInput" type="text" placeholder="Type here..." />
             </div>
 
 
-          <div class="question-text"> Question Here </div>
-            <div class="prompt-box">
-            <input class="user-input" id="userInput" type="text" placeholder="Type here..." />
+            <div class="question-text"> Your Budget / Price Range </div>
+                <div class="prompt-box">
+                <input class="user-input" id="budgetInput" type="text" placeholder="Type here..." />
             </div>
 
-          <button class="confirm-button">Confirm</button>
-        -->        
-            <!-- Questions (Stacked Vertically) -->
-            <div class="question-item">
-                <h3>Question 1</h3>
-                <input class="user-input" placeholder="Type here...">
+            <div class="confirm-wrapper">
+                <button class="confirm-button" onclick="askGemini()">Confirm</button>
             </div>
+        </div>
+
+        <div id="page2" class="hidden">
+            <div id="model">
+                <model-viewer id="3dModel" alt="A 3D model of a robot" auto-rotate="" camera-controls="" background-color="#455A64"></model-viewer>
+            </div>
+            <!-- Loads model-viewer for modern browsers -->
+            <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+            <!-- Loads model-viewer for older browsers -->
+            <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+        </div>
+
+        
+
+
             
-            <div class="question-item">
-                <h3>Question 2</h3>
-                <input class="user-input" placeholder="Type here...">
-            </div>
+
+            
+            
+        <script src="app.js"></script>
     </body> 
 </html>

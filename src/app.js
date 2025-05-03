@@ -1,4 +1,4 @@
-const apiKey = "YOUR_GEMINI_API_KEY"; // Replace with your real API key
+const apiKey = "API KEY"; // Replace with your real API key
 
 let gpuData = [];
 
@@ -12,6 +12,8 @@ fetch("../dataset/gpuData.json")
   });
 
 async function askGemini() {
+    console.log("Test here");
+
     //Getting inputs from website
     const usageInput = document.getElementById("usageInput").value;
     const programsInput = document.getElementById("programsInput").value;
@@ -25,7 +27,7 @@ async function askGemini() {
     });
 
     //Make the prompt
-    const prompt = `${context}\n`;
+    let prompt = `${context}\n`;
 
     //Checke each input box if its empty and add a message accordingly
     if(usageInput.trim() === ""){
@@ -56,7 +58,7 @@ async function askGemini() {
         prompt += `${budgetInput}\n`;
     }
 
-    prompt += `\nBased on all of this information and ONLY the list of GPUs given, which GPU would you recommend, for easy usage purposes, mention the name of the gpu exactly how it appears in the given dataset`;
+    prompt += `\nBased on all of this information and ONLY the list of GPUs given, which GPU would you recommend, for easy usage purposes, mention the name of the gpu exactly how it appears in the given dataset, give me one single sentence that has only 1 gpu recommendation`;
 
     //Call gemini API and get a response
     const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + apiKey, {
@@ -81,7 +83,7 @@ async function askGemini() {
 
     document.getElementById("specs").innerText = specs;
 
-    document.getElementById("3dModel").src = `${selectedGPU.Name}.glb`;
+    document.getElementById("3dModel").src = `../models/${selectedGPU.Name}.glb`;
 
     // Hide Page 1 and show Page 2
     document.getElementById("page1").classList.remove("visible");

@@ -1,8 +1,10 @@
 
 body {
+  background-image: linear-gradient(red, yellow);
     margin: 0px;
     padding: 0px;
 }
+
 
 .navbar ul {
     list-style-type: none;
@@ -127,24 +129,6 @@ model-viewer {
   
   /*Text box section ends here */
 
-
-  .gradient-background {
-    background: linear-gradient(240deg,#100b8c,#000000);
-    background-size: 120% 120%;
-    animation: gradient-animation 10s ease infinite;
-  }
-  
-  @keyframes gradient-animation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
 
   .hidden {
     opacity: 0;

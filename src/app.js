@@ -80,6 +80,8 @@ async function askGemini() {
     const specs = `${selectedGPU.Name} Specifications:\nRelease Date: ${selectedGPU.Date}\nCompany: ${selectedGPU.Company}\nMemory: ${selectedGPU.Memory}\nAverage Price: ${selectedGPU.Price}\nPerformance Overview: ${selectedGPU.Performance}`;
 
     document.getElementById("specs").innerText = specs;
+
+    document.getElementById("model").src = `${selectedGPU.Name}.glb`;
 }
 
 function getGPU(answer){

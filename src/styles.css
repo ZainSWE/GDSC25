@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    flex-wrap: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    
+}
+
+li {
+    display: inline;
+}
+
+.prompt-box {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    box-shadow: 10px;
+}
+
+

@@ -21,7 +21,7 @@ async function askGemini() {
     //Make context for gemini based on the dataset of gpus
     let context = "Here is a list of GPU information:\n";
     gpuData.forEach(gpu => {
-        context += `Name: ${gpu.name}\nMemory: ${gpu.memory}\nPerformance: ${gpu.performance}\nPrice: ${gpu.price}\n\n`;
+        context += `Name: ${gpu.Name}\nMemory: ${gpu.Memory}\nCompany: ${gpu.Company}\nPerformance: ${gpu.Performance}\nRelease Date: ${gpu.Date}\nPrice: ${gpu.Price}\n\n`;
     });
 
     //Make the prompt
@@ -71,19 +71,24 @@ async function askGemini() {
     const result = await response.json();
     const answer = result.candidates[0].content.parts[0].text;
 
-    document.getElementById("output").innerText = answer;
+    document.getElementById("finalRec").innerText = answer;
 
     selectedGPU = getGPU(answer);
-    console.log(selectedGPU);
+    console.log(selectedGPU.Name);
+
+    //Make an output message for the specs of the gpu recommended
+    const specs = `${selectedGPU.Name} Specifications:\nRelease Date: ${selectedGPU.Date}\nCompany: ${selectedGPU.Company}\nMemory: ${selectedGPU.Memory}\nAverage Price: ${selectedGPU.Price}\nPerformance Overview: ${selectedGPU.Performance}`;
+
+    document.getElementById("specs").innerText = specs;
 }
 
 function getGPU(answer){
     //Go through the gpu list to check if its mentioned in the output
     for(let gpu of gpuData){
-        if(answer.toLowerCase().includes(gpu.name.toLowerCase())){
-            return gpu.name;
+        if(answer.toLowerCase().includes(gpu.Name.toLowerCase())){
+            return gpu;
         }
     }
 
-    return "Unknown GPU"; //Return unknown if the gpu wasnt foound
+    return "Unknown GPU"; //Return unknown if the gpu wasnt found
 }

@@ -1,0 +1,154 @@
+[
+    {
+    "Name": "RTX 4080",
+    "Memory": "16 GB",
+    "Company": "NVIDIA ",
+    "Release Date": "Nov-22",
+    "Price": 1200,
+    "Performance Overview": "Outstanding for 4K gaming with ray tracing and DLSS 3. Excellent productivity performance in Blender, Adobe, and AI workloads (Ada Lovelace)."
+    },
+    {
+    "Name": "RTX 4060",
+    "Memory": "8GB",
+    "Company": "NVIDIA ",
+    "Release Date": "Jul-23",
+    "Price": 300,
+    "Performance Overview": "RTX 4060 – Great for 1080p gaming, decent 1440p. Entry-level productivity; limited VRAM and memory bandwidth can bottleneck heavier tasks."
+    },
+    {
+    "Name": "RTX 4070",
+    "Memory": "12GB ",
+    "Company": "NVIDIA ",
+    "Release Date": "Apr-23",
+    "Price": 600,
+    "Performance Overview": "Great for 1080p gaming, decent 1440p. Entry-level productivity; limited VRAM and memory bandwidth can bottleneck heavier tasks."
+    },
+    {
+    "Name": "RTX 3050",
+    "Memory": "8GB ",
+    "Company": "NVIDIA ",
+    "Release Date": "Jan-22",
+    "Price": 250,
+    "Performance Overview": "Good 1080p gaming. Entry-level productivity; usable for light rendering and editing with CUDA acceleration."
+    },
+    {
+    "Name": "RTX 2080",
+    "Memory": "8GB ",
+    "Company": "NVIDIA ",
+    "Release Date": "Sep-18",
+    "Price": 700,
+    "Performance Overview": "Very capable 1440p/entry 4K gaming. Strong productivity performance for its generation with ray tracing and CUDA support."
+    },
+    {
+    "Name": "GTX 1660",
+    "Memory": "6GB",
+    "Company": "NVIDIA ",
+    "Release Date": "Mar-19",
+    "Price": 220,
+    "Performance Overview": "Good 1080p gaming. Basic productivity support; lacks tensor/RT cores and NVENC advancements for serious workloads."
+    },
+    {
+    "Name": "GTX 1080",
+    "Memory": "8GB",
+    "Company": "NVIDIA ",
+    "Release Date": "May-16",
+    "Price": 600,
+    "Performance Overview": "Still solid for 1080p/1440p gaming. OK for older rendering pipelines but lacks ray tracing, tensor cores, and modern acceleration."
+    },
+    {
+    "Name": "GTX 1060",
+    "Memory": "6GB",
+    "Company": "NVIDIA ",
+    "Release Date": "Jul-16",
+    "Price": 250,
+    "Performance Overview": "Casual 1080p gaming. Light productivity use only; outdated for modern 3D workflows."
+    },
+    {
+    "Name": "GT 970",
+    "Memory": "4GB",
+    "Company": "NVIDIA ",
+    "Release Date": "Sep-14",
+    "Price": 80,
+    "Performance Overview": "Outdated; playable 900p/1080p in older titles. Poor productivity performance by today’s standards."
+    },
+    {
+    "Name": "RADEON RX 6400",
+    "Memory": "4GB",
+    "Company": "AMD",
+    "Release Date": "Jan-22",
+    "Price": 159,
+    "Performance Overview": "Very entry-level 1080p gaming. Poor for 3D/design work; limited hardware acceleration and memory bandwidth."
+    },
+    {
+    "Name": "RADEON RX 6500 XT",
+    "Memory": "4GB",
+    "Company": "AMD",
+    "Release Date": "Jan-22",
+    "Price": 200,
+    "Performance Overview": "Playable 1080p with compromises. Weak productivity; missing hardware encoders and only PCIe x4 support hurts."
+    },
+    {
+    "Name": "RADEON RX 6600",
+    "Memory": "8GB",
+    "Company": "AMD",
+    "Release Date": "Oct-21",
+    "Price": 320,
+    "Performance Overview": "Solid 1080p gaming. Decent for light editing, but lacks CUDA/NVENC alternatives, limiting efficiency in many tools."
+    },
+    {
+    "Name": "RADEON RX 6600XT",
+    "Memory": "8GB",
+    "Company": "AMD",
+    "Release Date": "Aug-21",
+    "Price": 380,
+    "Performance Overview": "Great for 1080p, capable 1440p gaming. Good for light-medium 3D and design tasks."
+    },
+    {
+    "Name": "RADEON RX 6650 XT",
+    "Memory": "8GB",
+    "Company": "AMD",
+    "Release Date": "May-22",
+    "Price": 400,
+    "Performance Overview": "Improved 6600 XT with faster clocks. Slight edge in gaming and design work, but still limited for pro workloads."
+    },
+    {
+    "Name": "RADEON RX 6700 XT",
+    "Memory": "12GB",
+    "Company": "AMD",
+    "Release Date": "Mar-21",
+    "Price": 479,
+    "Performance Overview": "Very good 1440p gaming. Strong in productivity where GPU OpenCL/Vulkan are used, but weaker in CUDA-dominant apps."
+    },
+    {
+    "Name": "RADEON RX 6750 XT",
+    "Memory": "12GB",
+    "Company": "AMD",
+    "Release Date": "May-22",
+    "Price": 550,
+    "Performance Overview": "Faster version of 6700 XT; great for 1440p and light 4K. Suitable for semi-professional workloads."
+    },
+    {
+    "Name": "RADEON RX 6800",
+    "Memory": "16GB",
+    "Company": "AMD",
+    "Release Date": "Nov-20",
+    "Price": 580,
+    "Performance Overview": "Excellent 1440p and strong 4K gaming. Very competent for rendering, though not ideal for CUDA-based pipelines."
+    },
+    {
+    "Name": "RADEON RX 6950",
+    "Memory": "16GB",
+    "Company": "AMD",
+    "Release Date": "May-22",
+    "Price": 1100,
+    "Performance Overview": "Top-tier RDNA2 gaming card. Great for 3D rendering, editing, and design—especially in OpenCL/Vulkan apps."
+    },
+    {
+    "Name": "RADEON RX 7900",
+    "Memory": "20GB",
+    "Company": "AMD",
+    "Release Date": "Mar-21",
+    "Price": 900,
+    "Performance Overview": "Powerful for 4K gaming. Competitive in professional work (rendering, editing) with modern AV1 encoding and high VRAM (20–24 GB)."
+    }
+]

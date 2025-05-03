@@ -10,32 +10,33 @@
     <body class="cal-sans-regular">
         <nav class="navbar">
             <ul>
-                <li class="home"><a href="index.html">Home</a></li>
-                <li><a href="recs.html">Recs</a></li>
-                <li><a href="review.html">Review</a></li>
-                <li><a href="about.html">About</a></li>
+                <li class="home"><a href="index.html">HOME</a></li>
+                <li><a href="review.html">REVIEW</a></li>
+                <li><a href="about.html">ABOUT</a></li>
             </ul>
         </nav>
+    
 
         <div id="container">
+            
             <div id="page1" class="page visible">
+            
 
-                
-                    <div class="glassPanel">
+                <div class="glassPanel">
                     <h1 class="website-name">GPYOU</h1>
                     <p class="website-sub">Choose the perfect GPU just for you!</p>
-                    </div>
-                    
-                    <video class="gpuAnim" loop autoplay muted>
-                        <source src="../models/gpu.mp4" type="video/mp4">
-                    </video>
+                </div>
+
+                <video class="gpuAnim" loop autoplay muted>
+                    <source src="../models/gpu.mp4" type="video/mp4">
+                </video>
+
+                <button class="scrollButton" onClick="document.getElementById('firstQuestion').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });">GET STARTED</button>
+
+                <div class="glassPanel2"></div>
                 
-
-
-                <!--<div class="question-wrap"> -->
                 <div class="question-text" id="firstQuestion"> What would you like to use your gpu for?</div>
                     <div class="prompt-box">
-                    
                     <input class="user-input" id="usageInput" type="text" placeholder="I would like to use the pc for gaming..." />
                 </div>
 
@@ -59,24 +60,36 @@
                     <button class="confirm-button" onclick="askGemini()">Confirm</button>
                 </div>
             </div>
+                
 
             <div id="page2" class="page hidden">
+
                 <div id="model">
                     <model-viewer id="3dModel" alt="A 3D model of a robot" auto-rotate="" camera-controls="" background-color="#455A64"></model-viewer>
                 </div>
 
-                <div id="finalRec"></div>
+                <div class="info-wrap">
+                <div class="finalRec" id="finalRec"></div>
 
-                <div id="specs"></div>
+                <div class="specs-row">
+                    <div class="spec-card">
+                        <div class="spec-info" id="specs"></div>
+                    </div>
+                  </div>
+                <div class="finalRec" id="finalRec"></div>
+
+                </div>
 
                 <!-- Loads model-viewer for modern browsers -->
                 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
                 <!-- Loads model-viewer for older browsers -->
                 <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
             </div>
+
+            
         </div>
 
-
+        <div class="gradBackground"></div>
         
         <script src="app.js"></script>
     </body> 

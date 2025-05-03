@@ -5,6 +5,7 @@
 }
 
 body {
+    background-color: black;
     color: white;
     justify-content: center;
     text-align: center;
@@ -21,6 +22,7 @@ body {
   height: 1220px;
   margin: 0 auto; /* Center the video */
   margin-top: -300px;
+  z-index: -50;
 }
 
 /* Position the title & subtitle absolutely inside the video */
@@ -68,6 +70,31 @@ body {
   transform-style: preserve-3d;
 }
 
+
+/*THIS IS THE ABOUT PAGE CSS */
+.aboutPanel {
+  position: absolute;
+  left: 25%;
+  border-radius: 25px;
+  top: 18.5%;
+  width: 50%;
+  margin-top: 200px;
+  max-width: 1000px;
+  height: 800px;
+    background: rgba(255, 255, 255, 0.17);
+}
+
+.about-sub {
+  top: 20%; /* Adjust vertical position */
+  padding: 35px;
+  font-size: 17px;
+  margin-top: 20px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+/*ABOUT SECTION ENDS HERE */
+
 @keyframes float {
   0%, 100% {
     transform: translate(-50%, -50%) perspective(1000px) 
@@ -110,11 +137,15 @@ body {
 }
 
 .navbar ul {
-    list-style-type: none;
-    background-color: black;
-    overflow: hidden;
-    margin: 0px;
-    padding: 0px;
+  list-style-type: none;
+  background-color: black;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  position: fixed; /* Changed from default to fixed */
+  top: 0; /* Anchor to top of viewport */
+  width: 100%; /* Full width */
+  z-index: 1000; /* Ensure it stays above other content */
 }
 
 .navbar a {
@@ -126,7 +157,8 @@ body {
 }
 
 .navbar a:hover {
-    background-color: blue;
+    background-color: rgb(0, 187, 255);
+    color: black;
 }
 
 .navbar li {
@@ -178,7 +210,7 @@ model-viewer {
 /*Text box section*/
 
 .confirm-button {
-  padding: 12px 24px;
+  padding: 15px;
   font-size: 18px;
   font-family: "Cal Sans", sans-serif;
   background-color: #0c64a3;
@@ -187,10 +219,10 @@ model-viewer {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  margin: 20px auto;              
+  margin-bottom: 50px; 
+  margin-top: -50px;             
   display: block;
-  margin-top: 2px;
-
+  z-index: 25;
 }
 
   .confirm-wrapper {
@@ -203,17 +235,14 @@ model-viewer {
     background-color: #00ff40;
   }
 
-.question-wrap {
-
-  margin-bottom: 25px;
-  margin-top: 250px;
-}
-
 .question-text {
     font-size: 24px;
     text-align: center;
-    margin-bottom: 25px;
+    margin-top: -50.8px;
+    padding-top: 50.8px;
+    margin-bottom: 10px;
     color: #ffffff;
+    z-index: 20;
   }
   
   .prompt-box {
@@ -221,7 +250,8 @@ model-viewer {
     background-color: transparent;
     font-size: 0px;
     color: black;
-    margin-bottom: 100px;
+    margin-bottom: 90px;
+    z-index: 20;
   }
   
   .user-input {
@@ -235,6 +265,7 @@ model-viewer {
     margin: 0 auto;
     display: block;
     margin-bottom: 10px;
+    z-index: 25;
   }
   
   /*Text box section ends here */
@@ -245,6 +276,7 @@ model-viewer {
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
+    z-index: 0;
   }
 
   .page {
@@ -254,7 +286,7 @@ model-viewer {
     width: 100%;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
   }
 
   .visible {
@@ -269,4 +301,101 @@ model-viewer {
     position: absolute; /* remove it from layout */
   }
 
+  .scrollButton {
+    display: block; /* Change from flex to block for simpler centering */
+    margin: 20px auto; /* Top/bottom margin and auto left/right centers it */
+    margin-top: -310px;
+    margin-bottom: 300px;
+    border-radius: 20px;
+    font-size: 25px;
+    font-family: "Cal Sans", sans-serif;
+    border: none;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content; /* Only take up as much width as needed */
+  }
   
+  .scrollButton:hover {
+    background-color: rgb(0, 187, 255);
+    color: black;
+    }
+
+  .glassPanel2 {
+    position: absolute;
+    left: 25%;
+    border-radius: 25px;
+
+  }
+    
+  /*Specs and Recs Panels*/
+
+  .specs-row {
+    margin: 0;
+    padding: 0;
+    transform: none;
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .spec-card {
+    flex: 1 1 48%;
+    position: relative;
+    width: 100%;
+    width: 800px;
+    background: #78777799;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #c3c2c544;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .spec-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: red;
+  border-radius: 20px;
+  z-index: -1;
+  padding: 20px;
+  }
+
+  .info-wrap {
+    display: flex;
+    align-items: flex-start;
+    padding: 40px 60px;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+
+  /*Specs and Recs ends */
+
+  #page1{
+    background: #020024;
+    background: linear-gradient(180deg,rgb(0, 0, 0) 60%, rgba(9, 9, 121, 1) 71%, rgba(3, 105, 206, 1) 89%, rgba(0, 136, 255, 1) 99%);
+    z-index: -50;
+  }
+
+  .finalRec {
+    flex: 1;
+    text-align: left;
+    color: white;
+    font-size: 24px;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  .spec-info {
+    line-height: 2.2;
+    text-align: left;
+    font-size: 18px;
+  }

@@ -58,7 +58,7 @@ async function askGemini() {
         prompt += `${budgetInput}\n`;
     }
 
-    prompt += `\nBased on all of this information and ONLY the list of GPUs given, which GPU would you recommend, for easy usage purposes, mention the name of the gpu exactly how it appears in the given dataset, give me one single sentence that has only 1 gpu recommendation`;
+    prompt += `\nBased on all of this information and ONLY the list of GPUs given, which GPU would you recommend, for easy usage purposes, mention the name of the gpu exactly how it appears in the given dataset, give me one single sentence that has only 1 gpu recommendation and the price of it cannot exceed the budget`;
 
     //Call gemini API and get a response
     const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + apiKey, {
@@ -87,9 +87,10 @@ async function askGemini() {
 
     // Hide Page 1 and show Page 2
     document.getElementById("page1").classList.remove("visible");
+    document.getElementById("page2").classList.add("visible");
     document.getElementById("page1").classList.add("hidden");
     document.getElementById("page2").classList.remove("hidden");
-    document.getElementById("page2").classList.add("visible");
+    
 }
 
 function getGPU(answer){

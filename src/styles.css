@@ -40,8 +40,8 @@ body {
 .website-name {
   top: 20%; /* Adjust vertical position */
   font-size: 100px;
-  margin-top: -30px;
-}
+    margin-top: -30px;
+  }
 
 .website-sub {
   top: 40%; /* Adjust vertical position */
@@ -74,13 +74,13 @@ body {
 /*THIS IS THE ABOUT PAGE CSS */
 .aboutPanel {
   position: absolute;
-  left: 25%;
+  left: 120px;
   border-radius: 25px;
   top: 18.5%;
   width: 50%;
   margin-top: 200px;
-  max-width: 1000px;
-  height: 1100px;
+  max-width: 600px;
+  height: 600px;
     background: rgb(53, 52, 52);
 }
 
@@ -121,8 +121,6 @@ body {
   }
 }
 
-
-
 .about-sub {
   top: 20%; /* Adjust vertical position */
   padding: 35px;
@@ -130,6 +128,65 @@ body {
   margin-top: 20px;
   text-align: left;
   line-height: 1.6;
+}
+
+
+.aboutPanel2 {
+  position: absolute;
+  left: 800px;
+  border-radius: 25px;
+  top: 18.5%;
+  width: 50%;
+  margin-top: 200px;
+  max-width: 600px;
+  height: 600px;
+    background: rgb(53, 52, 52);
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+
+}
+
+.aboutPanel2::after, .aboutPanel2::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle),blue, rgb(13, 169, 212),blue,  rgb(13, 169, 212));
+  top: -3px;
+  left: -3.5px;
+  translate: -50 -50;
+  border-radius: 25px;
+  z-index: -1;
+  padding: 4px;
+  animation: 3s spin linear infinite;
+}
+
+.aboutPanel2::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
+
+.about-sub2 {
+  top: 20%; /* Adjust vertical position */
+  padding: 35px;
+  font-size: 18px;
+  margin-top: 20px;
+  text-align: left;
+  line-height: 1.4;
 }
 
 /*ABOUT SECTION ENDS HERE */
@@ -177,7 +234,7 @@ body {
 
 .navbar ul {
   list-style-type: none;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.26);
   overflow: hidden;
   margin: 0px;
   padding: 0px;
@@ -271,7 +328,8 @@ model-viewer {
   }
 
   .confirm-button:hover {
-    background-color: #00ff40;
+    background-color: rgb(0, 187, 255);
+    color: black;
   }
 
 .question-text {
@@ -311,7 +369,7 @@ model-viewer {
 
 
   #container {
-    position: relative;
+    position: absolute;
     width: 100%;
     min-height: 100vh;
     overflow: hidden;
@@ -369,7 +427,9 @@ model-viewer {
     width: 45%;
     height: 700px;
     margin-top: -40px;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(158, 158, 158, 0.15);
+    backdrop-filter: blur(15px) saturate(120%);
+    -webkit-backdrop-filter: blur(15px) saturate(120%);
     padding: 40px;
     border-radius: 20px;
     z-index: -1;
@@ -444,8 +504,20 @@ model-viewer {
     max-width: 1200px;
     margin: 0 auto;
   }
-  
 
+  .glassPanel3 {
+    position: absolute;
+    left: -25px;
+    border-radius: 25px;
+    width: 100%;
+    height: 700px;
+    margin-top: -40px;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 40px;
+    border-radius: 20px;
+    z-index: -10;
+  }
+  
   /*Specs and Recs ends */
 
   #page1{
@@ -467,4 +539,90 @@ model-viewer {
     line-height: 2.2;
     text-align: left;
     font-size: 18px;
+  }
+
+  /**Gallery viewer styles **/
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 400px;
+    background-position: absolute;
+    background: #020024;
+    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(9, 9, 121, 1) 74%, rgba(0, 80, 161, 1) 100%);
+  }
+  
+  .gpu-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 450px; /* Ensure enough height for model + text */
+  }
+  
+  .gpu-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+
+  .gpu-info {
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    flex-grow: 1;
+  }
+  
+  .gpu-info h3 {
+    margin: 0 0 10px;
+  }
+  
+  .gpu-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    font-size: 14px;
+  }
+  
+  /* Expand details on hover */
+  .gpu-card:hover .gpu-details {
+    max-height: 300px;
+  }
+
+  .lavaBubbles {
+    position: fixed; /* Change from absolute to fixed */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Ensure it covers the entire viewport */
+    z-index: -100;
+  }
+
+  footer {
+    background-color: #000000;
+    color: #b6b4b4;
+    display: inline;
+    text-align: center;
+    margin-top: 0px;
+    padding: 0px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    z-index: 10000;
+  }
+
+  #content{
+    height: 1130px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    
   }

@@ -27,38 +27,41 @@ async function askGemini() {
     });
 
     //Make the prompt
-    let prompt = `${context}\n`;
+    let prompt = `${context}\nHere are the user's preferences:\n`;
 
     //Checke each input box if its empty and add a message accordingly
     if(usageInput.trim() === ""){
-        prompt += `I have no preference when it comes to the general usage of the gpu,\n`;
+        prompt += `Usage preference: I have no preference when it comes to the general usage of the gpu,\n`;
     }
     else{
-        prompt += `${usageInput}\n`;
+        prompt += `Usage preference: ${usageInput}\n`;
     }
 
     if(programsInput.trim() === ""){
-        prompt += `I have no expectances when it comes to performance,\n`;
+        prompt += `Performance Expectations: I have no expectances when it comes to performance,\n`;
     }
     else{
-        prompt += `${programsInput}\n`;
+        prompt += `Performance Expectations: ${programsInput}\n`;
     }
 
     if(companyInput.trim() === ""){
-        prompt += `I have no preference when it comes to the manufacturer/company of the gpu,\n`;
+        prompt += `Preferred company: I have no preference when it comes to the manufacturer/company of the gpu,\n`;
     }
     else{
-        prompt += `${companyInput}\n`;
+        prompt += `Preferred company: ${companyInput}\n`;
     }
 
     if(budgetInput.trim() === ""){
-        prompt += `I have no budget restrictions in mind,\n`;
+        prompt += `Budget: I have no budget restrictions in mind,\n`;
     }
     else{
-        prompt += `${budgetInput}\n`;
+        prompt += `Budget: ${budgetInput}\n`;
     }
 
-    prompt += `\nBased on all of this information and ONLY the list of GPUs given, which GPU would you recommend, for easy usage purposes, mention the name of the gpu exactly how it appears in the given dataset, give me one single sentence that has only 1 gpu recommendation and the price of it cannot exceed the budget`;
+    prompt += `--If one of these preferences is not connected to GPUs and the preference then ignore it completely and assume the user has no preferences for that section-- 
+    \nBased on these preferences and ONLY the list of GPUs given, which GPU would you recommend, 
+    the best GPU that satisfies the preferences without exceeding the budget (if specified), mention the name of the gpu exactly how it appears in the given dataset, 
+    give me one single small sentence that has only 1 gpu recommendation and explain why this option suits the user briefly in a conversational way, do not sound robotic`;
 
     //Call gemini API and get a response
     const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + apiKey, {

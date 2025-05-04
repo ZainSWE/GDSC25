@@ -80,14 +80,53 @@ body {
   width: 50%;
   margin-top: 200px;
   max-width: 1000px;
-  height: 800px;
-    background: rgba(255, 255, 255, 0.17);
+  height: 1100px;
+    background: rgb(53, 52, 52);
 }
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+
+}
+
+.aboutPanel::after, .aboutPanel::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle),blue, rgb(13, 169, 212),blue,  rgb(13, 169, 212));
+  top: -3px;
+  left: -3.5px;
+  translate: -50 -50;
+  border-radius: 25px;
+  z-index: -1;
+  padding: 4px;
+  animation: 3s spin linear infinite;
+}
+
+.aboutPanel::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
+
+
 
 .about-sub {
   top: 20%; /* Adjust vertical position */
   padding: 35px;
-  font-size: 17px;
+  font-size: 20px;
   margin-top: 20px;
   text-align: left;
   line-height: 1.6;
@@ -305,7 +344,7 @@ model-viewer {
     display: block; /* Change from flex to block for simpler centering */
     margin: 20px auto; /* Top/bottom margin and auto left/right centers it */
     margin-top: -310px;
-    margin-bottom: 300px;
+    margin-bottom: 350px;
     border-radius: 20px;
     font-size: 25px;
     font-family: "Cal Sans", sans-serif;
@@ -327,7 +366,13 @@ model-viewer {
     position: absolute;
     left: 25%;
     border-radius: 25px;
-
+    width: 45%;
+    height: 700px;
+    margin-top: -40px;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 40px;
+    border-radius: 20px;
+    z-index: -1;
   }
     
   /*Specs and Recs Panels*/
@@ -345,26 +390,50 @@ model-viewer {
     position: relative;
     width: 100%;
     width: 800px;
-    background: #78777799;
+    background: #242323;
     padding: 30px;
-    border-radius: 20px;
     box-shadow: 0 0 20px #c3c2c544;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 25px;
   }
 
-  .spec-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: red;
-  border-radius: 20px;
-  z-index: -1;
-  padding: 20px;
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+
+  }
+
+  .spec-card::after, .spec-card::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),blue, rgb(13, 169, 212),blue,  rgb(13, 169, 212));
+    top: -3px;
+    left: -3.5px;
+    translate: -50 -50;
+    border-radius: 25px;
+    z-index: -1;
+    padding: 4px;
+    animation: 3s spin linear infinite;
+  }
+
+  .spec-card::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+  }
+
+  @keyframes spin {
+    from {
+      --angle: 0deg;
+    }
+
+    to {
+      --angle: 360deg;
+    }
   }
 
   .info-wrap {

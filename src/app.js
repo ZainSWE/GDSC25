@@ -1,4 +1,4 @@
-const apiKey = "API_KEY"; // Replace with your real API key
+const apiKey = process.env.API_KEY;
 
 let gpuData = [];
 

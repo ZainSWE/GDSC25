@@ -1,0 +1,631 @@
+.cal-sans-regular {
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    background-color: black;
+    color: white;
+    justify-content: center;
+    text-align: center;
+    font-family: "Cal Sans", sans-serif;
+    background-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Make the video container a positioning context */
+.gpuAnim {
+  position: relative; /* Allows absolute positioning inside */
+  width: 1020px;
+  height: 1220px;
+  margin: 0 auto; /* Center the video */
+  margin-top: -300px;
+  z-index: -50;
+}
+
+/* Position the title & subtitle absolutely inside the video */
+.website-name, .website-sub {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10; /* Ensures text appears above video */
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+  margin-top: -100px;
+}
+
+.website-name {
+  top: 20%; /* Adjust vertical position */
+  font-size: 100px;
+    margin-top: -30px;
+  }
+
+.website-sub {
+  top: 40%; /* Adjust vertical position */
+  font-size: 20px;
+  margin-top: 50px;
+}
+
+.glassPanel {
+  position: absolute;
+  left: 50%;
+  top: 18.5%;
+  width: 25%;
+  max-width: 800px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px) saturate(120%);
+  -webkit-backdrop-filter: blur(15px) saturate(120%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.2),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+  z-index: 9;
+  animation: float 10s ease-in-out infinite;
+  transform: translate(-50%, -50%) perspective(1000px);
+  transform-style: preserve-3d;
+}
+
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  gap: 40px; /* space between panels */
+  padding: 40px;
+  position: relative;
+  z-index: 5;
+}
+
+
+.aboutPanel,
+.aboutPanel2 {
+  position: relative;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 600px;
+  height: 600px;
+  margin-top: 400px;
+  background: rgb(53, 52, 52);
+}
+
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+
+}
+
+.aboutPanel::after, .aboutPanel::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle),blue, rgb(13, 169, 212),blue,  rgb(13, 169, 212));
+  top: -3px;
+  left: -3.5px;
+  translate: -50 -50;
+  border-radius: 25px;
+  z-index: -1;
+  padding: 4px;
+  animation: 3s spin linear infinite;
+}
+
+.aboutPanel::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
+
+.about-sub {
+  top: 20%; /* Adjust vertical position */
+  padding: 35px;
+  font-size: 20px;
+  margin-top: 20px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+
+}
+
+@media (max-width: 768px) {
+  .about-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+.aboutPanel2::after, .aboutPanel2::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: conic-gradient(from var(--angle),blue, rgb(13, 169, 212),blue,  rgb(13, 169, 212));
+  top: -3px;
+  left: -3.5px;
+  translate: -50 -50;
+  border-radius: 25px;
+  z-index: -1;
+  padding: 4px;
+  animation: 3s spin linear infinite;
+}
+
+.aboutPanel2::before {
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
+
+.about-sub2 {
+  top: 20%; /* Adjust vertical position */
+  padding: 35px;
+  font-size: 18px;
+  margin-top: 20px;
+  text-align: left;
+  line-height: 1.4;
+}
+
+/*ABOUT SECTION ENDS HERE */
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -50%) perspective(1000px) 
+              rotateX(-8deg) rotateY(8deg) 
+              translateZ(20px);
+    box-shadow: 
+      0 15px 50px rgba(0, 0, 0, 0.5),
+      inset 0 0 50px rgba(255, 255, 255, 0.2),
+      0 0 80px rgba(100, 150, 255, 0.4);
+  }
+  25% {
+    transform: translate(-50%, -50%) perspective(1000px) 
+              rotateX(10deg) rotateY(-5deg) 
+              translateZ(40px);
+  }
+  50% {
+    transform: translate(-50%, -50%) perspective(1000px) 
+              rotateX(5deg) rotateY(10deg) 
+              translateZ(30px);
+  }
+  75% {
+    transform: translate(-50%, -50%) perspective(1000px) 
+              rotateX(-5deg) rotateY(-10deg) 
+              translateZ(40px);
+  }
+}
+
+
+/* Ensure the gpuAnim container can handle 3D transforms */
+.gpuAnim {
+  transform-style: preserve-3d;
+}
+
+/* Enhance the text to appear on the glass */
+.website-name, .website-sub {
+  text-shadow: 
+    0 2px 8px rgba(255, 255, 255, 0.6),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  transform: translateZ(20px);
+}
+
+.navbar ul {
+  list-style-type: none;
+  background-color: rgba(0, 0, 0, 0.26);
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  position: fixed; /* Changed from default to fixed */
+  top: 0; /* Anchor to top of viewport */
+  width: 100%; /* Full width */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+
+.navbar a:hover {
+    background-color: rgb(0, 187, 255);
+    color: black;
+}
+
+.navbar li {
+    float: right;
+}
+
+.navbar li.home {
+    float: left;
+}
+
+/*3D MODEL******************************************************************/
+/* Transform the page into a 2-column grid */
+#holder {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+}
+
+/* The left grid contains the text and occupies 50% of the available space */
+#text {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    margin: 0px 45px;
+}
+
+#model {
+    width: 100%;
+    height: 600px; /* or whatever height you prefer */
+    margin: 0 auto;
+}
+
+model-viewer {
+    width: 100%;
+    height: 100%;
+}
+/*3D MODEL******************************************************************/
+
+/*final recommendation*/
+.finalRecommendation {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    width: 500px;
+    background-color: black;
+    color: white;
+}
+
+/*Text box section*/
+
+.confirm-button {
+  padding: 15px;
+  font-size: 18px;
+  font-family: "Cal Sans", sans-serif;
+  background-color: #0c64a3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 50px; 
+  margin-top: -50px;             
+  display: block;
+  z-index: 25;
+}
+
+  .confirm-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .confirm-button:hover {
+    background-color: rgb(0, 187, 255);
+    color: black;
+  }
+
+.question-text {
+    font-size: 24px;
+    text-align: center;
+    margin-top: -50.8px;
+    padding-top: 50.8px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    z-index: 20;
+  }
+  
+  .prompt-box {
+    width: 100%;
+    background-color: transparent;
+    font-size: 0px;
+    color: black;
+    margin-bottom: 90px;
+    z-index: 20;
+  }
+  
+  .user-input {
+    font-family: "Cal Sans", sans-serif;
+    padding: 10px;
+    width: 100%;           
+    max-width: 600px;
+    font-size: 18px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 25;
+  }
+  
+  /*Text box section ends here */
+
+
+  #container {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .visible {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative; /* allow it to affect height */
+  }
+
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute; /* remove it from layout */
+  }
+
+  .scrollButton {
+    display: block; /* Change from flex to block for simpler centering */
+    margin: 20px auto; /* Top/bottom margin and auto left/right centers it */
+    margin-top: -310px;
+    margin-bottom: 350px;
+    border-radius: 20px;
+    font-size: 25px;
+    font-family: "Cal Sans", sans-serif;
+    border: none;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content; /* Only take up as much width as needed */
+  }
+  
+  .scrollButton:hover {
+    background-color: rgb(0, 187, 255);
+    color: black;
+    }
+
+  .glassPanel2 {
+    position: absolute;
+    left: 25%;
+    border-radius: 25px;
+    width: 45%;
+    height: 700px;
+    margin-top: -35px;
+    background: rgba(158, 158, 158, 0.15);
+    backdrop-filter: blur(15px) saturate(120%);
+    -webkit-backdrop-filter: blur(15px) saturate(120%);
+    padding: 40px;
+    border-radius: 20px;
+    z-index: -1;
+  }
+    
+  /*Specs and Recs Panels*/
+
+  .specs-row {
+    margin: 0;
+    padding: 0;
+    transform: none;
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .spec-card {
+    flex: 1 1 48%;
+    position: relative;
+    width: 100%;
+    width: 800px;
+    background: #242323;
+    padding: 30px;
+    box-shadow: 0 0 20px #c3c2c544;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 25px;
+  }
+
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+
+  }
+
+  .spec-card::after, .spec-card::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle),blue, rgb(13, 169, 212),blue,  rgb(13, 169, 212));
+    top: -3px;
+    left: -3.5px;
+    translate: -50 -50;
+    border-radius: 25px;
+    z-index: -1;
+    padding: 4px;
+    animation: 3s spin linear infinite;
+  }
+
+  .spec-card::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+  }
+
+  @keyframes spin {
+    from {
+      --angle: 0deg;
+    }
+
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  .info-wrap {
+    display: flex;
+    align-items: flex-start;
+    padding: 40px 60px;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .glassPanel3 {
+    position: absolute;
+    left: -25px;
+    border-radius: 25px;
+    width: 100%;
+    height: 700px;
+    background: rgba(158, 158, 158, 0.15);
+    padding: 40px;
+    border-radius: 20px;
+    z-index: -10;
+  }
+  
+  /*Specs and Recs ends */
+
+  #page1{
+    background: #020024;
+    background: linear-gradient(180deg,rgb(0, 0, 0) 60%, rgba(9, 9, 121, 1) 71%, rgba(3, 105, 206, 1) 89%, rgba(0, 136, 255, 1) 99%);
+    z-index: -50;
+  }
+
+  .finalRec {
+    flex: 1;
+    text-align: left;
+    color: white;
+    font-size: 24px;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  .spec-info {
+    line-height: 2.2;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  /**Gallery viewer styles **/
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 400px;
+    background-position: absolute;
+  }
+  
+  .gpu-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 450px; /* Ensure enough height for model + text */
+  }
+  
+  .gpu-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+
+  .gpu-info {
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    flex-grow: 1;
+  }
+  
+  .gpu-info h3 {
+    margin: 0 0 10px;
+  }
+  
+  .gpu-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    font-size: 14px;
+  }
+  
+  /* Expand details on hover */
+  .gpu-card:hover .gpu-details {
+    max-height: 300px;
+  }
+
+  .lavaBubbles {
+    position: fixed; /* Change from absolute to fixed */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Ensure it covers the entire viewport */
+    z-index: -100;
+  }
+
+  footer {
+    background-color: #000000;
+    color: #b6b4b4;
+    display: inline;
+    text-align: center;
+    margin-top: 0px;
+    padding: 0px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+    z-index: 10000;
+  }
+
+  #content{
+    height: 1130px;
+  }
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    
+  }

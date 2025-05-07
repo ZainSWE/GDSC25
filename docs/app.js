@@ -1,11 +1,9 @@
-const apiKey = process.env.API_KEY;
-
 let gpuData = [];
 
 let selectedGPU = "";
 
 // Load GPU data from a json file
-fetch("../dataset/gpuData.json")
+fetch("dataset/gpuData.json")
   .then(res => res.json())
   .then(data => {
     gpuData = data;
@@ -64,12 +62,10 @@ async function askGemini() {
     give me one single small sentence that has only 1 gpu recommendation and explain why this option suits the user briefly in a conversational way, do not sound robotic`;
 
     //Call gemini API and get a response
-    const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + apiKey, {
+    const response = await fetch("https://secure-api-proxy.onrender.com/api/gemini", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }]
-        })
+        body: JSON.stringify({ prompt })
     });
 
     //Parse the response into a valid output
@@ -86,7 +82,7 @@ async function askGemini() {
 
     document.getElementById("specs").innerText = specs;
 
-    document.getElementById("3dModel").src = `../models/${selectedGPU.Name}.glb`;
+    document.getElementById("3dModel").src = `models/${selectedGPU.Name}.glb`;
 
     // Hide Page 1 and show Page 2
     document.getElementById("page1").classList.remove("visible");

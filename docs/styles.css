@@ -70,19 +70,29 @@ body {
   transform-style: preserve-3d;
 }
 
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  gap: 40px; /* space between panels */
+  padding: 40px;
+  position: relative;
+  z-index: 5;
+}
 
-/*THIS IS THE ABOUT PAGE CSS */
-.aboutPanel {
-  position: absolute;
-  left: 120px;
+
+.aboutPanel,
+.aboutPanel2 {
+  position: relative;
   border-radius: 25px;
-  top: 18.5%;
-  width: 50%;
-  margin-top: 200px;
+  width: 100%;
   max-width: 600px;
   height: 600px;
-    background: rgb(53, 52, 52);
+  margin-top: 400px;
+  background: rgb(53, 52, 52);
 }
+
 
 @property --angle {
   syntax: "<angle>";
@@ -130,25 +140,20 @@ body {
   line-height: 1.6;
 }
 
-
-.aboutPanel2 {
-  position: absolute;
-  left: 800px;
-  border-radius: 25px;
-  top: 18.5%;
-  width: 50%;
-  margin-top: 200px;
-  max-width: 600px;
-  height: 600px;
-    background: rgb(53, 52, 52);
-}
-
 @property --angle {
   syntax: "<angle>";
   initial-value: 0deg;
   inherits: false;
 
 }
+
+@media (max-width: 768px) {
+  .about-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
 .aboutPanel2::after, .aboutPanel2::before {
   content: '';
@@ -381,6 +386,7 @@ model-viewer {
     top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -426,7 +432,7 @@ model-viewer {
     border-radius: 25px;
     width: 45%;
     height: 700px;
-    margin-top: -40px;
+    margin-top: -35px;
     background: rgba(158, 158, 158, 0.15);
     backdrop-filter: blur(15px) saturate(120%);
     -webkit-backdrop-filter: blur(15px) saturate(120%);
@@ -511,8 +517,7 @@ model-viewer {
     border-radius: 25px;
     width: 100%;
     height: 700px;
-    margin-top: -40px;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(158, 158, 158, 0.15);
     padding: 40px;
     border-radius: 20px;
     z-index: -10;
@@ -550,8 +555,6 @@ model-viewer {
     padding: 20px;
     margin-top: 400px;
     background-position: absolute;
-    background: #020024;
-    background: linear-gradient(180deg,rgba(0, 0, 0, 1) 0%, rgba(9, 9, 121, 1) 74%, rgba(0, 80, 161, 1) 100%);
   }
   
   .gpu-card {

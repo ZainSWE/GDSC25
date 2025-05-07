@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GPYOU</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    </head>
+    <body class="cal-sans-regular">
+        <nav class="navbar">
+            <ul>
+                <li class="home"><a href="index.html">HOME</a></li>
+                <li><a href="model.html">MODELS</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+            </ul>
+        </nav>
+
+        <div id="container">
+            
+            <div id="page1" class="page visible">
+            
+
+                <div class="glassPanel">
+                    <h1 class="website-name">GPYOU</h1>
+                    <p class="website-sub">Choose the perfect GPU just for you!</p>
+                </div>
+
+                <video class="gpuAnim" loop autoplay muted>
+                    <source src="../models/gpu.mp4" type="video/mp4">
+                </video>
+
+                <button class="scrollButton" onClick="document.getElementById('firstQuestion').scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });">GET STARTED</button>
+
+                <div class="glassPanel2"></div>
+                
+                <div class="question-text" id="firstQuestion"> What would you like to use your gpu for?</div>
+                    <div class="prompt-box">
+                    <input class="user-input" id="usageInput" type="text" placeholder="I would like to use the pc for gaming..." />
+                </div>
+
+                <div class="question-text"> What programs do you want to run?</div>
+                    <div class="prompt-box">
+                    <input class="user-input" id="programsInput" type="text" placeholder="I am expecting it to be high performance..." />
+                </div>
+
+                <div class="question-text"> Do you have a preference for a GPU Manufacturer? </div>
+                    <div class="prompt-box">
+                    <input class="user-input" id="companyInput" type="text" placeholder="I would prefer Nvidia..." />
+                </div>
+
+
+                <div class="question-text"> Your Budget / Price Range </div>
+                    <div class="prompt-box">
+                    <input class="user-input" id="budgetInput" type="text" placeholder="My budget is 500-700$..." />
+                </div>
+
+                <div class="confirm-wrapper">
+                    <button class="confirm-button" onclick="askGemini()">CONFIRM</button>
+                </div>
+            </div>
+                
+
+            <div id="page2" class="page hidden">
+
+                <div id="model">
+                    <model-viewer id="3dModel" alt="A 3D model of a robot" auto-rotate="" camera-controls="" background-color="#455A64"></model-viewer>
+                </div>
+
+                <div class="glassPanel3"></div>
+                <div class="info-wrap">
+                <div class="finalRec" id="finalRec"></div>
+
+                <div class="specs-row">
+                    <div class="spec-card">
+                        <div class="spec-info" id="specs"></div>
+                    </div>
+                  </div>
+                <div class="finalRec" id="finalRec"></div>
+
+                </div>
+
+                <!-- Loads model-viewer for modern browsers -->
+                <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+                <!-- Loads model-viewer for older browsers -->
+                <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+            
+                <footer>
+                    <div class="footer-content">
+                    <p>© GPYOU 2025. Choose the Perfect GPU just for you.</p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <div class="gradBackground"></div>
+
+        <script src="app.js"></script>
+    </body> 
+</html>

@@ -1,4 +1,4 @@
-fetch('../dataset/gpuData.json')
+fetch('dataset/gpuData.json')
   .then(res => res.json())
   .then(gpus => {
     const gallery = document.getElementById('gallery');

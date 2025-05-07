@@ -6,7 +6,7 @@ fetch('dataset/gpuData.json')
       const div = document.createElement('div');
       div.className = 'gpu-card';
       div.innerHTML = `
-        <model-viewer src="../models/${gpu.Name}.glb" alt="${gpu.Name}" camera-controls disable-zoom></model-viewer>
+        <model-viewer src="models/${gpu.Name}.glb" alt="${gpu.Name}" camera-controls disable-zoom></model-viewer>
         <div class="gpu-info">
           <h3>${gpu.Name}</h3>
           <div class="gpu-details">

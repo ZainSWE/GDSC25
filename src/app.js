@@ -1,5 +1,3 @@
-const apiKey = process.env.API_KEY;
-
 let gpuData = [];
 
 let selectedGPU = "";
@@ -64,12 +62,10 @@ async function askGemini() {
     give me one single small sentence that has only 1 gpu recommendation and explain why this option suits the user briefly in a conversational way, do not sound robotic`;
 
     //Call gemini API and get a response
-    const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + apiKey, {
+    const response = await fetch("https://secure-api-proxy.onrender.com/api/gemini", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }]
-        })
+        body: JSON.stringify({ prompt })
     });
 
     //Parse the response into a valid output
